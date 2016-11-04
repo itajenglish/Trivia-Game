@@ -30,3 +30,7 @@ main {
 #card{
   margin-top: 20px;
 }
+#changeBtn{
+text-align: center;
+margin-bottom: 20px;
+}
