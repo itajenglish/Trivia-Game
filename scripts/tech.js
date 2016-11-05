@@ -2,7 +2,8 @@ $(document).ready(function() {
   console.log('Script Loaded!');
 
   // Counter to repsent each answers arry in the questions object.
-  var counter = 1;
+  var counter = 0;
+  var findAnswers;
 
   var questions = [{
     question: ["What does [ ] repsent in javascript?"],
@@ -51,12 +52,14 @@ $(document).ready(function() {
   var $Time = $('#playerTime');
 
   var $changeBtn = $('#changeBtn');
-      $changeBtn.hide();
+  $changeBtn.hide();
 
   $changeBtn.click(function(event) {
-    changeQ();
     counter++;
+    changeQ();
     console.log('clicked Me!');
+    console.log(counter);
+
   });
 
   var $startGameBtn = $('#startGameBtn').click(function(event) {
@@ -66,15 +69,17 @@ $(document).ready(function() {
     $answerButtons.show('slow/400/fast', function() {});
     Timer();
 
-    });
+  });
   // populates dom on page load.
-  function populateDom() {
-    $('#question').text(questions[0].question);
-    for (var i = 0; i < questions[0].answers.length; i++) {
+  (function populateDom() {
+    $('#question').text(questions[counter].question);
+    for (var i = 0; i < questions[counter].answers.length; i++) {
       var populateButtons = $('#answerBtn a')[i];
-      $(populateButtons).text(questions[0].answers[i]);
+      $(populateButtons).text(questions[counter].answers[i]);
     }
-  }
+    findAnswers = questions[counter].correctA;
+  })();
+
   // populates dom with question when change question button is clicked.
   function changeQ() {
     for (var i = 0; i < questions[counter].question.length; i++) {
@@ -86,18 +91,66 @@ $(document).ready(function() {
     for (var j = 0; j < questions[counter].answers.length; j++) {
       var populateButtons = $('#answerBtn a')[j];
       $(populateButtons).text(questions[counter].answers[j]);
-  }
-
-
-  }
-    populateDom();
-    function Timer(){
-      var counter = 60;
-
-      setInterval(function(){
-        counter --;
-        $Time.text(counter);
-        console.log(counter);
-      },1000);
     }
+
+    findAnswers = questions[counter].correctA;
+  }
+
+  //Timer function is invoked when Start Game button is clicked.
+  function Timer() {
+    var time = 30;
+
+    var gameTimer = setInterval(function() {
+      time--;
+      $Time.text(time);
+      // console.log(counter);
+
+      // If counter is equal to 0 stop Timer.
+      if (time === 0) {
+        clearInterval(gameTimer);
+        console.log('Timer has ended!');
+      }
+    }, 1000);
+  }
+
+
+  $('#0').click(function(event) {
+    console.log(findAnswers);
+
+    if ($('#0').text() === findAnswers){
+      alert('Correct Answer!');
+    }
+
+  });
+
+    $('#1').click(function(event) {
+
+      if ($('#1').text() === findAnswers){
+        alert('Correct Answer!');
+      }
+
+    });
+
+      $('#2').click(function(event) {
+
+        if ($('#2').text() === findAnswers){
+          alert('Correct Answer!');
+        }
+
+
+      });
+
+        $('#3').click(function(event) {
+
+          if ($('#3').text() === findAnswers){
+            alert('Correct Answer!');
+          }
+
+
+        });
+
+  console.log(findAnswers);
+// function checkAnswer(){
+//
+// }
 });
