@@ -106,7 +106,7 @@ $(document).ready(function() {
   //Timer function is invoked when Start Game button is clicked.
   var pause = false;
   var Timer = function() {
-    time = 30;
+    var time = 30;
 
     var gameTimer = setInterval(function() {
       time--;
@@ -116,6 +116,7 @@ $(document).ready(function() {
       // If counter is equal to 0 stop Timer.
       if (time === 0 || pause === true) {
          clearInterval(gameTimer);
+         checkScore();
         console.log('Timer has ended!');
       }
     }, 1000);
