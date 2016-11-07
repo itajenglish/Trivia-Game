@@ -3,10 +3,11 @@ $(document).ready(function() {
 
   // Counter to repsent each answers arry in the questions object.
   var counter = 0;
+  var score = 0;
   var findAnswers;
 
   var questions = [{
-    question: ["What does [ ] repsent in javascript?"],
+    question: ["What does [ ] represent in javascript?"],
     answers: ["object", "array", 'arguments', 'undefined'],
     correctA: "object"
   }, {
@@ -26,7 +27,7 @@ $(document).ready(function() {
     answers: ["function()", "func", 'invokeFunction', '.function'],
     correctA: "function()"
   }, {
-    question: ["What does {} repsent in javascript?"],
+    question: ["What does { } repsent in javascript?"],
     answers: ["object", "array", 'arguments', 'undefined'],
     correctA: "object"
   }, {
@@ -49,29 +50,35 @@ $(document).ready(function() {
 
   var $questionText = $('#question').hide();
   var $answerButtons = $('#answerBtn').hide();
+  var $instructions = $('#instructions');
+  var $questionLeftWrapper = $('#questionLeftWrapper').hide();
   var $Time = $('#playerTime');
 
   var $changeBtn = $('#changeBtn');
   $changeBtn.hide();
 
   $changeBtn.click(function(event) {
+    $('#answerBtn a').removeClass('btn-flat disabled').addClass('btn red waves-effect waves-light');
     counter++;
+    gameEnd();
     changeQ();
+    questionLeftUpdate();
     console.log('clicked Me!');
     console.log(counter);
-
   });
 
   var $startGameBtn = $('#startGameBtn').click(function(event) {
     $startGameBtn.hide('slow/400/fast', function() {});
+    $instructions.hide('slow/400/fast', function() {});
     $changeBtn.show('slow/400/fast', function() {});
     $questionText.show('slow/400/fast', function() {});
     $answerButtons.show('slow/400/fast', function() {});
+    $questionLeftWrapper.show('slow/400/fast', function() {});
     Timer();
-
   });
   // populates dom on page load.
   (function populateDom() {
+    $('#questionLeftNumber').text("1");
     $('#question').text(questions[counter].question);
     for (var i = 0; i < questions[counter].answers.length; i++) {
       var populateButtons = $('#answerBtn a')[i];
@@ -97,36 +104,59 @@ $(document).ready(function() {
   }
 
   //Timer function is invoked when Start Game button is clicked.
-  function Timer() {
-    var time = 30;
+  var pause = false;
+  var Timer = function() {
+    time = 30;
 
     var gameTimer = setInterval(function() {
       time--;
       $Time.text(time);
-      // console.log(counter);
+      console.log(time);
 
       // If counter is equal to 0 stop Timer.
-      if (time === 0) {
-        clearInterval(gameTimer);
+      if (time === 0 || pause === true) {
+         clearInterval(gameTimer);
         console.log('Timer has ended!');
       }
     }, 1000);
+  };
+
+  //Adds 10 to the current score when its called.
+  function scoreUpdate(){
+    score += 10;
+    $('#playerScore').text(score);
   }
 
-
+  //Updates question left number
+  function questionLeftUpdate(){
+    $('#questionLeftNumber').text(counter + 1);
+  }
+  //onClick functions for game buttons.
   $('#0').click(function(event) {
-    console.log(findAnswers);
 
     if ($('#0').text() === findAnswers){
-      alert('Correct Answer!');
+      scoreUpdate();
+      gameEnd();
+
+      $('#answerBtn a').attr('class', 'btn-flat disabled');
+      console.log(score);
+    }else{
+      $('#answerBtn a').attr('class', 'btn-flat disabled');
     }
 
   });
 
-    $('#1').click(function(event) {
+    $('#1').click(function(event){
 
       if ($('#1').text() === findAnswers){
-        alert('Correct Answer!');
+        scoreUpdate();
+        gameEnd();
+
+        $('#answerBtn a').attr('class', 'btn-flat disabled');
+        console.log(score);
+      }else{
+        $('#answerBtn a').attr('class', 'btn-flat disabled');
+
       }
 
     });
@@ -134,23 +164,46 @@ $(document).ready(function() {
       $('#2').click(function(event) {
 
         if ($('#2').text() === findAnswers){
-          alert('Correct Answer!');
-        }
+          scoreUpdate();
+          gameEnd();
 
+          $('#answerBtn a').attr('class', 'btn-flat disabled');
+          console.log(score);
+        }else{
+          $('#answerBtn a').attr('class', 'btn-flat disabled');
+        }
 
       });
 
         $('#3').click(function(event) {
 
           if ($('#3').text() === findAnswers){
-            alert('Correct Answer!');
+            scoreUpdate();
+            gameEnd();
+            $('#answerBtn a').attr('class', 'btn-flat disabled');
+            console.log(score);
+          }else{
+            $('#answerBtn a').attr('class', 'btn-flat disabled');
           }
 
-
         });
+        //Checks to see if all the questions where answered correctly.
+        function checkScore(){
+          if($('#playerScore').text() >= 100){
+            alert('You won!');
+          }else if ($('#playerScore').text() < 100) {
+            pause = true;
+            alert('You lost!');
+          }
 
-  console.log(findAnswers);
-// function checkAnswer(){
-//
-// }
+        }
+        // Ends game when questions end.
+        function gameEnd(){
+          if(counter > 9){
+            $changeBtn.hide('slow/400/fast', function() {});
+            $('#answerBtn a').attr('class', 'btn-flat disabled');
+            pause = true;
+            checkScore();
+          }
+        }
 });
