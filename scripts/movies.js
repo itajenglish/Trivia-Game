@@ -7,7 +7,7 @@ $(document).ready(function() {
   var findAnswers;
 
   var questions = [{
-    question: ["Who did the 1st A-Team movie come out?"],
+    question: ["When did the 1st A-Team movie come out?"],
     answers: ["2016", "2007", '2010', '2008'],
     correctA: "2010"
   }, {
