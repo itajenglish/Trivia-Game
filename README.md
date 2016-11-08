@@ -19,5 +19,7 @@
 - Design
 
 # User Story
+![alt tag](https://github.com/itajenglish/Trivia-Game/blob/master/images/IMG_2764.JPG)
 
 # Wire Frame
+![alt tag](https://github.com/itajenglish/Trivia-Game/blob/master/images/IMG_2765.JPG)
