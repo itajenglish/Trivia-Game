@@ -7,11 +7,11 @@ $(document).ready(function() {
   var findAnswers;
 
   var questions = [{
-    question: ["Who did the 1st A-Team movie come out"],
+    question: ["Who did the 1st A-Team movie come out?"],
     answers: ["2016", "2007", '2010', '2008'],
     correctA: "2010"
   }, {
-    question: ["Who stars in the transporter"],
+    question: ["Who stars in the transporter?"],
     answers: ["John Wayne", "Jason Statham", 'Sean Connery', 'Douglas Fairbanks'],
     correctA: "Jason Statham"
   }, {
@@ -20,7 +20,7 @@ $(document).ready(function() {
     correctA: "Dr. No"
   }, {
     question: ["Who is the star in Jack Reacher?"],
-    answers: ["Top Cruise", "Adolphe Menjou", 'Alain Delon', 'Alan Ladd'],
+    answers: ["Tom Cruise", "Adolphe Menjou", 'Alain Delon', 'Alan Ladd'],
     correctA: "Tom Cruise"
   }, {
     question: ["What year was Cowboys & Aliens filmed?"],
@@ -32,7 +32,7 @@ $(document).ready(function() {
     correctA: "Mark Zuckerberg"
   }, {
     question: ["What company was The Intern based on?"],
-    answers: ["Facebook", "Google", 'Microsoft', 'Generl Assembly'],
+    answers: ["Facebook", "Google", 'Microsoft', 'General Assembly'],
     correctA: "Google"
   }, {
     question: ["When was the 1st Fast n Furious created?"],
@@ -113,15 +113,18 @@ $(document).ready(function() {
       $Time.text(time);
       console.log(time);
 
-      // If counter is equal to 0 stop Timer.
+      // If counter is equal to 0 stop Timer and sound.
       if (time === 0 || pause === true) {
+        $('body').remove('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
          clearInterval(gameTimer);
          checkScore();
         console.log('Timer has ended!');
       }
-      //Activates Timmer Flash below 20sec
+
+      //Activates Timmer Flash and sound below 20sec
       if(time <= 20){
         $('.timeWrapper').css('animation', 'flashRed .500s infinite');
+        $('body').append('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
       }
     }, 1000);
   };

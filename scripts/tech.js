@@ -11,7 +11,7 @@ $(document).ready(function() {
     answers: ["object", "array", 'arguments', 'undefined'],
     correctA: "array"
   }, {
-    question: ["What  will this problem return? var f = 32; typeof x;"],
+    question: ["What will this problem return? var f = 32; typeof x;?"],
     answers: ["number", "undefined", 'function', 'Error'],
     correctA: "undefined"
   }, {
@@ -39,11 +39,11 @@ $(document).ready(function() {
     answers: ["Framework", "Compiler", 'Language', 'Run Time'],
     correctA: "Run Time"
   }, {
-    question: ["When was the 1st iPhone created"],
+    question: ["When was the 1st iPhone created?"],
     answers: ["2007", "2004", '2002', '2008'],
     correctA: "2007"
   }, {
-    question: ["How long did it take to create the 1st version of javascript"],
+    question: ["How long did it take to create the 1st version of javascrip?"],
     answers: ["5 days", "10 days", '10 weeks', '1 year'],
     correctA: "5 days"
   }, ];
@@ -113,16 +113,18 @@ $(document).ready(function() {
       $Time.text(time);
       console.log(time);
 
-      // If counter is equal to 0 stop Timer.
+      // If counter is equal to 0 stop Timer and sound.
       if (time === 0 || pause === true) {
+        $('body').remove('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
          clearInterval(gameTimer);
          checkScore();
         console.log('Timer has ended!');
       }
 
-      //Activates Timmer Flash below 20sec
+      //Activates Timmer Flash and sound below 20sec
       if(time <= 20){
         $('.timeWrapper').css('animation', 'flashRed .500s infinite');
+        $('body').append('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
       }
     }, 1000);
   };
