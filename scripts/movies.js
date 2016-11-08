@@ -115,8 +115,8 @@ $(document).ready(function() {
 
       // If counter is equal to 0 stop Timer and sound.
       if (time === 0 || pause === true) {
-        $('body').remove('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
          clearInterval(gameTimer);
+         $('body').remove('<audio src="sounds/Beep_Sound.wav" autoplay></audio>');
          checkScore();
         console.log('Timer has ended!');
       }
