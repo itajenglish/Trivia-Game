@@ -5,8 +5,8 @@
 - jQuery
 - CSS 3
 - Javascript
-# Installion Instructions
 
+# Installion Instructions
 - npm install -g live-server
 - cd into Trivia-Game
 - run live-server
