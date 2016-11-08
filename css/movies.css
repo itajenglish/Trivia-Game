@@ -19,7 +19,12 @@ main {
   padding-right: 12px;
   float:right;
   font-size: 2em;
-  /*background-color: red;*/
+}
+
+@keyframes flashRed {
+  from { background: red; }
+     to { background: default; }
+
 }
 .scoreWrapper{
   padding-left: 12px;

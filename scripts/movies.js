@@ -106,7 +106,7 @@ $(document).ready(function() {
   //Timer function is invoked when Start Game button is clicked.
   var pause = false;
   var Timer = function() {
-    var time = 30;
+    var time = 60;
 
     var gameTimer = setInterval(function() {
       time--;
@@ -118,6 +118,10 @@ $(document).ready(function() {
          clearInterval(gameTimer);
          checkScore();
         console.log('Timer has ended!');
+      }
+      //Activates Timmer Flash below 20sec
+      if(time <= 20){
+        $('.timeWrapper').css('animation', 'flashRed .500s infinite');
       }
     }, 1000);
   };

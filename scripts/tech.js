@@ -119,6 +119,11 @@ $(document).ready(function() {
          checkScore();
         console.log('Timer has ended!');
       }
+
+      //Activates Timmer Flash below 20sec
+      if(time <= 20){
+        $('.timeWrapper').css('animation', 'flashRed .500s infinite');
+      }
     }, 1000);
   };
 
