@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Trivia Game</title>
+  <link rel="stylesheet" href="css/movies.css" media="screen" title="no title">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> -->
+  <link rel="stylesheet" href="materialize/css/materialize.min.css">
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<header>
+  <nav>
+    <div class="nav-wrapper purple">
+      <a href="index.html" class="brand-logo center welcomeMsg"><img class="responsive-img clock-img" src="images/Time_IMG.png" alt="Time" />Movies Trivia</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a class="waves-effect waves-light" href="index.html">🔙 Back</a></li>
+      </ul>
+      <p class="scoreWrapper">Score: <span id="playerScore">0</span>/100</p>
+      <p class="timeWrapper">Time Left: <span id="playerTime">30</span></p>
+    </div>
+  </nav>
+</header>
+
+<body>
+    <div class="container">
+      <div class="row">
+        </div>
+        <div class="col s12">
+          <div class="questionWrapper">
+            <hr>
+            <div id="card" class="card center-align purple lighten-2">
+              <div class="card-content white-text">
+                <p id="questionLeftWrapper"  class="card-title"><span id="questionLeftNumber"></span>/10</p>
+                <h5 id="question"></h5>
+                <div id = "instructions">
+                  <h2>Instructions</h2>
+                  <hr>
+                  <h4>How to play</h4>
+                  <p>Answer All 10 questions correctly before the timer runs out or else you loose the game!</p>
+                </div>
+              </div>
+              <div id="answerBtn" class="card-action">
+                <a id="0" class="btn red waves-effect waves-light" href="#">This is a button</a>
+                <a id="1" class="btn red waves-effect waves-light" href="#">This is a button</a>
+                <a id="2" class="btn red waves-effect waves-light" href="#">This is a button</a>
+                <a id="3" class="btn red waves-effect waves-light" href="#">This is a button</a>
+              </div>
+              <div id="nextBtnContainer">
+                <a id="startGameBtn" class="btn btn-large green waves-effect waves-light" href="#">Start Game</a>
+                <a id="changeBtn" class="btn btn-large green waves-effect waves-light" href="#">Next➡</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+  <footer>
+    <div class="footerContent">
+      <p>Hand Crafted <span id="heart">&hearts;</span> By Yours Truly <a href="http://www.tajenglish.me/" target="_blank" id="footerName">Taj English</a> &copy 2016</p>
+    </div>
+  </footer>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> -->
+  <script src="scripts/jquery-3.1.1.min.js"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+  <script src="materialize/js/materialize.min.js"></script>
+
+  <script type="text/javascript" src="scripts/movies.js"></script>
+</body>
+
+</html>

@@ -7,45 +7,45 @@ $(document).ready(function() {
   var findAnswers;
 
   var questions = [{
-    question: ["What does [ ] represent in javascript?"],
-    answers: ["object", "array", 'arguments', 'undefined'],
-    correctA: "array"
+    question: ["Who did the 1st A-Team movie come out"],
+    answers: ["2016", "2007", '2010', '2008'],
+    correctA: "2010"
   }, {
-    question: ["What  will this problem return? var f = 32; typeof x;"],
-    answers: ["number", "undefined", 'function', 'Error'],
-    correctA: "undefined"
+    question: ["Who stars in the transporter"],
+    answers: ["John Wayne", "Jason Statham", 'Sean Connery', 'Douglas Fairbanks'],
+    correctA: "Jason Statham"
   }, {
-    question: ["Who made apple?"],
-    answers: ["Steve Jobs", "Bill Gates", 'Elon Musk', 'Taj English'],
-    correctA: "Steve Jobs"
+    question: ["What was the 1st James Bond Movie?"],
+    answers: ["From Russia with Love", "Goldfinger", 'Thunderball', 'Dr. No'],
+    correctA: "Dr. No"
   }, {
-    question: ["When was uber founded?"],
-    answers: ["2003", "2009", '2012', '2020'],
-    correctA: "2009"
+    question: ["Who is the star in Jack Reacher?"],
+    answers: ["Top Cruise", "Adolphe Menjou", 'Alain Delon', 'Alan Ladd'],
+    correctA: "Tom Cruise"
   }, {
-    question: ["How do you invoke a function?"],
-    answers: ["function()", "func", 'invokeFunction', '.function'],
-    correctA: "function()"
+    question: ["What year was Cowboys & Aliens filmed?"],
+    answers: ["2013", "2011", '2009', '.2010'],
+    correctA: "2011"
   }, {
-    question: ["What does { } repsent in javascript?"],
-    answers: ["object", "array", 'arguments', 'undefined'],
-    correctA: "object"
+    question: ["Who was the social network based on?"],
+    answers: ["Bill Gates", "Mark Zuckerberg", 'Elon Musk', 'Steve Jobs'],
+    correctA: "Mark Zuckerberg"
   }, {
-    question: ["What will var x = 5 + x; return?"],
-    answers: ["5", "undefined", 'NaN', 'Error'],
-    correctA: "NaN"
+    question: ["What company was The Intern based on?"],
+    answers: ["Facebook", "Google", 'Microsoft', 'Generl Assembly'],
+    correctA: "Google"
   }, {
-    question: ["What is node?"],
-    answers: ["Framework", "Compiler", 'Language', 'Run Time'],
-    correctA: "Run Time"
+    question: ["When was the 1st Fast n Furious created?"],
+    answers: ["2001", "2003", '2006', '2015'],
+    correctA: "2001"
   }, {
-    question: ["When was the 1st iPhone created"],
-    answers: ["2007", "2004", '2002', '2008'],
-    correctA: "2007"
+    question: ["What car was Paul Walker most known for driving in Fast n Furious?"],
+    answers: ["Elipse", "GTR", 'Mustang', 'BMW'],
+    correctA: "GTR"
   }, {
-    question: ["How long did it take to create the 1st version of javascript"],
-    answers: ["5 days", "10 days", '10 weeks', '1 year'],
-    correctA: "5 days"
+    question: ["What year did the last karate kid come out?"],
+    answers: ["2013", "2012", '2010', '2008'],
+    correctA: "2010"
   }, ];
 
   var $questionText = $('#question').hide();
@@ -106,7 +106,7 @@ $(document).ready(function() {
   //Timer function is invoked when Start Game button is clicked.
   var pause = false;
   var Timer = function() {
-    var time = 60;
+    var time = 30;
 
     var gameTimer = setInterval(function() {
       time--;
